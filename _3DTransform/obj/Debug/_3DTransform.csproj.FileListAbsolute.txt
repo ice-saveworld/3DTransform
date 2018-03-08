@@ -1,0 +1,10 @@
+D:\NET\_3DTransform\_3DTransform\bin\Debug\_3DTransform.exe.config
+D:\NET\_3DTransform\_3DTransform\bin\Debug\_3DTransform.exe
+D:\NET\_3DTransform\_3DTransform\bin\Debug\_3DTransform.pdb
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.csprojResolveAssemblyReference.cache
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.Form1.resources
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.Properties.Resources.resources
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.csproj.GenerateResource.Cache
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.csproj.CoreCompileInputs.cache
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.exe
+D:\NET\_3DTransform\_3DTransform\obj\Debug\_3DTransform.pdb
