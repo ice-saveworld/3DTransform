@@ -14,6 +14,7 @@ namespace _3DTransform
     {
         int a;
         Triangle3D t;
+        Cube cube;
         Matrix4x4 m_scale;
         Matrix4x4 m_rotation;
         Matrix4x4 m_view;
@@ -33,7 +34,7 @@ namespace _3DTransform
             m_view[1, 1] = 1;
             m_view[2, 2] = 1;
             m_view[3, 3] = 1;
-            m_view[4, 3] = 250;
+            m_view[4, 3] = 500;
             m_view[4, 4] = 1;
 
             m_projection = new Matrix4x4();
@@ -46,24 +47,26 @@ namespace _3DTransform
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Vector4 a = new Vector4(0,-0.5,0,1);
-            Vector4 b = new Vector4(0.5,0.5,0,1);
-            Vector4 c = new Vector4(-0.5,0.5,0,1);
-            t = new Triangle3D(a,b,c);
-            t.Transform(m_scale);
+            Vector4 a = new Vector4(0,0.5,0,1);
+            Vector4 b = new Vector4(0.5,-0.5,0,1);
+            Vector4 c = new Vector4(-0.5,-0.5,0,1);
+            //t = new Triangle3D(a,b,c);
+            //t.Transform(m_scale);
+            cube = new Cube();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.TranslateTransform(300,300);
-            t.Draw(e.Graphics);
+            //t.Draw(e.Graphics);
+            cube.Draw(e.Graphics,isLine.Checked);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             a += 2;
-            if (a >= 360)
-                a = 0;
+            //if (a >= 720)
+            //    a = 0;
             double angle = a / 360.0 * Math.PI;
             m_rotation[1, 1] = Math.Cos(angle);
             m_rotation[1, 3] = Math.Sin(angle);
@@ -73,9 +76,13 @@ namespace _3DTransform
             m_rotation[4, 4] = 1;
 
             Matrix4x4 m = m_scale.Mul(m_rotation);
+
+            //t.CalculateLighting(m,new Vector4(0,0,-1,0));
+            cube.CalculateLighting(m,new Vector4(0,0,-1,0));
             m = m.Mul(m_view);
             m = m.Mul(m_projection);
-            t.Transform(m);
+            //t.Transform(m);
+            cube.Transform(m);
 
             Invalidate();
 
